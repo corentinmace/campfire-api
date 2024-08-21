@@ -1,0 +1,85 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Campfire API",
+    "description": "API for Campfire project.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8888",
+  "servers": [
+    {
+      "url": "/api"
+    }
+  ],
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "api-key",
+      "in": "header"
+    }
+  },
+  "paths": {
+    "/api": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/healthcheck": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Server Side Error": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "example": "ERROR"
+        },
+        "msg": {
+          "type": "string",
+          "example": "some error message"
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "example": "Error message caught"
+            },
+            "name": {
+              "type": "string",
+              "example": "Error name"
+            },
+            "stack": {
+              "type": "string",
+              "example": "Error stack"
+            }
+          },
+          "required": [
+            "message",
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "msg"
+      ]
+    }
+  }
+}
